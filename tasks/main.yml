@@ -1,0 +1,5 @@
+- name: put values
+  template: src=values.yml dest=/tmp/postgresql-{{ postgresql_helm_release }}.yml
+
+- name: upgrade {{ postgresql_helm_release }} release using a Helm chart
+  shell: helm upgrade {{ postgresql_helm_release }} stable/postgresql --install --namespace {{ k8s_namespace }} -f /tmp/postgresql-{{ postgresql_helm_release }}.yml

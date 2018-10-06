@@ -1,0 +1,7 @@
+postgresPassword: {{ k8s_postgres_password }}
+
+persistence:
+  storageClass: "{{ storage_class_name }}"
+
+metrics:
+  enabled: true
